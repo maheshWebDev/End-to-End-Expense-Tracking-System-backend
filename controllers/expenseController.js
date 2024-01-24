@@ -82,7 +82,6 @@ module.exports.updateExpense = async (req, res) => {
 module.exports.deleteExpense = async (req, res) => {
   try {
     const { id } = req.params;
-    console.log("request comming to delete", id);
 
     const userId = req.userId;
 
@@ -91,7 +90,6 @@ module.exports.deleteExpense = async (req, res) => {
       user: userId,
     });
 
-    console.log("deletedExpense", deletedExpense);
     if (!deletedExpense) {
       return res.status(404).json({
         message: "Expense not found or you do not have permission to delete",
